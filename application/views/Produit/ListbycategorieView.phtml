@@ -1,0 +1,30 @@
+<h1><?php echo $this->_data['categorie']->getLibelle() ?></h1>
+
+<?php  if(User::isAdministrator()){	?>
+	<a href="index.php?controller=Produit&action=add&idcategorie=<?php echo $this->_data['categorie']->getId() ?>">Ajouter un Produit</a>
+<?php }?>
+	
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Photo</th>
+			<th>ref</th>
+			<th>libelle</th>
+			<th>prix</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php foreach($this->_data['lesproduits']->getAll() as $leproduit){?>
+	<tr>
+		<td><?php echo $leproduit->getPhotoHTML() ?></td>
+		<td><?php echo $leproduit->getId() ?></td>
+		<td><?php echo $leproduit->getLibelle() ?></td>
+		<td><?php echo $leproduit->getPrixUnitaire() ?></td>
+		<td><a href="index.php?controller=Panier&action=Add&id=<?php echo $leproduit->getId() ?>">
+				<i class="glyphicon glyphicon-shopping-cart"></i>
+			</a>
+		</td>
+	</tr>
+<?php } ?>
+	</tbody>
+</table>

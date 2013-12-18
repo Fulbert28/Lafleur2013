@@ -1,0 +1,43 @@
+<form class="form-horizontal" role="form" method="POST" action="index.php?controller=Produit&action=add" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="txt_ref" class="col-sm-2 control-label">ref</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="txt_ref" placeholder="reference" name="txt_ref">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="txt_libelle" class="col-sm-2 control-label">Libellé</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="txt_libelle" placeholder="Libellé" name="txt_libelle">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="txt_prix" class="col-sm-2 control-label">Prix</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="txt_prix" placeholder="Prix" name="txt_prix">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="sel_categ" class="col-sm-2 control-label">Categorie</label>
+    <div class="col-sm-10">
+		<select name="sel_categ" class="form-control">
+			<?php foreach( $this->_data['lescategories']->getAll() as $unecateg){?>
+				<option value="<?php echo $unecateg->getId()?>"><?php echo $unecateg->getLibelle();?></option>
+			<?php } ?>
+		</select>
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="photo" class="col-sm-2 control-label">photo</label>
+    <div class="col-sm-10">
+      <input type="file" id="photo" placeholder="photo" name="photo">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" name="validation">Valider</button>
+    </div>
+  </div>
+</form>
+
+

@@ -1,0 +1,17 @@
+
+<?php if ($this->_data['panier']->getNbProduitDifferent()==0){?>
+	 <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Le panier est vide</a></li>
+<?php
+}
+else{
+
+	echo "Nombre d'article: ";
+	echo $this->_data['panier']->getNbProduitDifferent();
+	?>
+	<li role="presentation" class="divider"></li>
+	<li><a href="index.php?controller=Panier&action=Detail">Voir tout le contenu</a></li>
+<?php 	
+}
+?>
+
+ 

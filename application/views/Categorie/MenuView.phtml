@@ -1,0 +1,3 @@
+<?php foreach($this->_data['lescateg']->getAll() as $lacateg){?>
+	<li><a href="index.php?controller=Produit&action=Listbycategorie&idcategorie=<?php echo $lacateg->getId()?>"><?php echo $lacateg->getLibelle()?></a></li>
+<?php } ?>

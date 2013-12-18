@@ -1,0 +1,56 @@
+﻿
+		
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Photo</th>
+				<th>categorie</th>
+				<th>ref</th>
+				<th>libelle</th>
+				<th>prix</th>
+				<th>quantite</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+<?php 
+	
+	foreach($this->_data['panier']->getLeslignes()->getAll() as $uneligne){?>
+		<tr>
+			<td><?php echo $uneligne->getProduit()->getPhotoHTML() ?></td>
+			<td><?php echo $uneligne->getProduit()->getCategorie()->getLibelle() ?></td>
+			<td><?php echo $uneligne->getProduit()->getId() ?></td>
+			<td> <?php echo $uneligne->getProduit()->getLibelle() ?></td>
+			<td><?php echo $uneligne->getProduit()->getPrixUnitaire() ?> €</td>
+			<td><?php echo $uneligne->getQuantite() ?></td>
+			<td><?php echo $uneligne->getTotal() ?> €</td>
+			<td>
+				<a href="index.php?controller=Panier&action=delqte&prodid=<?php echo $uneligne->getProduit()->getId() ?>">
+					<i class="glyphicon glyphicon-minus-sign"></i>
+				</a>
+				<a href="index.php?controller=Panier&action=addqte&prodid=<?php echo $uneligne->getProduit()->getId() ?>">
+					<i class="glyphicon glyphicon-plus-sign"></i>
+				</a>
+
+			</td>
+		</tr>
+	<?php } ?>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>Total HT:</td>
+			<td><?php echo $this->_data['panier']->getTotalHT() ?> €</td>
+			<td>&nbsp;</td>
+		</tr>
+		</tbody>
+	</table>
+	<div >
+		<a href="index.php?controller=Panier&action=Commander" class="btn btn-success btn-large"><i class="icon-white icon-leaf"></i> Commander</a>
+	</div>
+	
+		
+
+ 

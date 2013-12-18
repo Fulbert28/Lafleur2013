@@ -1,0 +1,13 @@
+ <ul class="nav navbar-nav navbar-right">
+    <li><a href="#">Connexion</a></li>
+    <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Panier <span class="badge"><?php Application::getController('Panier','Icone'); ?></span> <b class="caret"></b></a>
+       <ul class="dropdown-menu">
+          <!--   <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Le panier est vide</a></li> -->
+          <?php //Application::getController('Panier','Resume'); ?>
+          <li role="presentation" class="divider"></li>
+          
+          <li><a href="index.php?controller=Panier&action=Detail">Voir tout le contenu</a></li>
+       </ul>
+   </li>
+</ul>
