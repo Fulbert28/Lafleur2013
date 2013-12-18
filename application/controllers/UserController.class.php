@@ -45,7 +45,7 @@ class UserController extends Controller {
 				
 				var_dump($unuser);
 				
-				if(isset($unuser)){
+				if(is_null($unuser)){
 					User::setInstance($unuser->getElementAtIndex(0));
 					//Redirection sur la page d'accueil
 					Application::getController("User","Authentification");
